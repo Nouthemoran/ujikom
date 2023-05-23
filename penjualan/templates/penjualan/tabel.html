@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table>
+    <thead>
+      <tr>
+        <th>Kode Jual</th>
+        <th>Kode Barang</th>
+        <th>Nama Barang</th>
+        <th>Tanggal Transaksi</th>
+        <th>Jumlah Barang</th>
+        <th>Harga Barang</th>
+        <th>Total Bayar</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mymodel in mymodels %}
+        <tr>
+          <td>{{ mymodel.kdjual }}</td>
+          <td>{{ mymodel.kdbrg }}</td>
+          <td>{{ mymodel.nmbrg }}</td>
+          <td>{{ mymodel.tgltrans }}</td>
+          <td>{{ mymodel.jumbrg }}</td>
+          <td>{{ mymodel.hargabrg }}</td>
+          <td>{{ mymodel.totalbyr }}</td>
+          <td>
+            <td><a class="btn btn-warning" href="{% url 'penjualan:update' MyModel.kdjual %}">Edit</a></td> 
+            <td><a class="btn btn-danger" href="{% url 'penjualan:delete' MyModel.kdjual %}" onclick="return confirm('Data Ini Akan Dihapus Secara Permanen,Anda yakin mau menghapus data ini?');">Delete</a></td>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

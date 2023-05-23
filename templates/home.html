@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h3>Anda telah berhasil login!</h3>
+{% else %}
+    <h4>Anda belum login</h4>
+
+{% endif %}
+
+{% endblock %}
